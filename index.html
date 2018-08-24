@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://code.jquery.com/jquery-1.11.2.js"></script>
+		<script type="text/javascript">
+			jQuery(window).load(function($){
+				atualizaRelogio();
+			});
+		</script>
+  <title>The Rex </title>
+  <link href="https://fonts.googleapis.com/css?family=Covered+By+Your+Grace|Raleway:100,500,600,800" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <!-- Contador -->
+  <script>
+montharray=new Array("Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec")
+
+function countup(yr,m,d){
+today=new Date()
+todayy=today.getYear()
+if (todayy < 1000)
+todayy+=1900
+todaym=today.getMonth()
+todayd=today.getDate()
+todaystring=montharray[todaym]+" "+todayd+", "+todayy
+paststring=montharray[m-1]+" "+d+", "+yr
+difference=(Math.round((Date.parse(todaystring)-Date.parse(paststring))/(24*60*60*1000))*1)
+difference+=" dias"
+
+}
+//enter the count up date using the format year/month/day
+countup(2014,10,01)
+</script>
+  <!-- fim -->
+</head>
+<body>
+
+ 
+  <div class="header">
+    <h1>The Rex's Jack's</h1>
+  </div>
+  <br><br><br><br>
+      <h2>Estamos a
+  <script>document.write(difference+" sem receber nenhum Jack Daniels.")
+  </script>
+        </h2>
+  <br>
+  <div>
+			<output id="data" type="text/css" href="style.css"></output>
+		</div>
+		<div>
+			<output id="hora" type="text/css" href="style.css"></output>				
+		</div>
+  
+    </body>
+  <script>
+		function atualizaRelogio(){ 
+			var momentoAtual = new Date();
+			
+			var vhora = momentoAtual.getHours();
+			var vminuto = momentoAtual.getMinutes();
+			var vsegundo = momentoAtual.getSeconds();
+			
+			var vdia = momentoAtual.getDate();
+			var vmes = momentoAtual.getMonth() + 1;
+			var vano = momentoAtual.getFullYear();
+			
+			if (vdia < 10){ vdia = "0" + vdia;}
+			if (vmes < 10){ vmes = "0" + vmes;}
+			if (vhora < 10){ vhora = "0" + vhora;}
+			if (vminuto < 10){ vminuto = "0" + vminuto;}
+			if (vsegundo < 10){ vsegundo = "0" + vsegundo;}
+ 
+			dataFormat = vdia + " / " + vmes + " / " + vano;
+			horaFormat = vhora + " : " + vminuto + " : " + vsegundo;
+ 
+			document.getElementById("data").innerHTML = dataFormat;
+			document.getElementById("hora").innerHTML = horaFormat;
+ 
+			setTimeout("atualizaRelogio()",1000);
+		}
+	</script>
+ 
+  <br><br>
+  <a href="#">Learn More about Rex's</a>
+    
+
+</html>
